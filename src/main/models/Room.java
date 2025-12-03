@@ -23,6 +23,8 @@ public class Room {
         setName(name);
         setDescription(description);
         setExits(exits);
+        setItemsInRoom(new ArrayList<Item>());
+        setMonstersInRoom(new ArrayList<Monster>());
     }
 
     // getters
@@ -51,6 +53,18 @@ public class Room {
         return monstersInRoom;
     }
 
+    public Integer getExit(String key) {
+        return exits.get(key);
+    }
+
+    public Item getItemInRoom(int i) {
+        return itemsInRoom.get(i);
+    }
+
+    public Monster getMonsterInRoom(int i) {
+        return monstersInRoom.get(i);
+    }
+
     // setters
 
     public void setRoomID(int roomID) {
@@ -75,6 +89,18 @@ public class Room {
 
     public void setMonstersInRoom(ArrayList<Monster> monstersInRoom) {
         this.monstersInRoom = monstersInRoom;
+    }
+
+    public void addExit(String key, Integer value) {
+        exits.put(key, value);
+    }
+
+    public void addItem(Item item) {
+        itemsInRoom.add(item);
+    }
+
+    public void addMonster(Monster monster) {
+        monstersInRoom.add(monster);
     }
 
     // toString

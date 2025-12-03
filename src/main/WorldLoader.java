@@ -36,6 +36,31 @@ public class WorldLoader {
     }
 
     public static void loadObjects(String filePath, HashMap<Integer, Room> rooms) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] parameters = line.split(",");
 
+                String type = parameters[0];
+                String name = parameters[1];
+                String description = parameters[2];
+                int location_id = Integer.valueOf(parameters[3]);
+                int value = Integer.valueOf(parameters[4]);
+
+                switch (type) {
+                    case "WEAPON":
+                        break;
+                    case "KEY":
+                        break;
+                    case "POTION":
+                        break;
+                    case "MONSTER":
+                }
+            }
+        } catch (FileNotFoundException exception) {
+            System.out.println("File was not found: " + filePath);
+        } catch (IOException exception) {
+            System.out.println(exception.getMessage());
+        }
     }
 }
