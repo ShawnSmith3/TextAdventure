@@ -19,10 +19,10 @@ public class WorldLoader {
                 String description = parameters[2];
 
                 HashMap<String, Integer> exits = new HashMap<>();
-                exits.put("north", Integer.getInteger(parameters[3]));
-                exits.put("south", Integer.getInteger(parameters[4]));
-                exits.put("east", Integer.getInteger(parameters[5]));
-                exits.put("west", Integer.getInteger(parameters[6]));
+                exits.put("north", Integer.valueOf(parameters[3]));
+                exits.put("south", Integer.valueOf(parameters[4]));
+                exits.put("east", Integer.valueOf(parameters[5]));
+                exits.put("west", Integer.valueOf(parameters[6]));
 
                 rooms.put(roomID, new Room(roomID, name, description, exits));
             }

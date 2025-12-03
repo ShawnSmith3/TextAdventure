@@ -76,4 +76,10 @@ public class Room {
     public void setMonstersInRoom(ArrayList<Monster> monstersInRoom) {
         this.monstersInRoom = monstersInRoom;
     }
+
+    // toString
+
+    public String toString() {
+        return "{" + getRoomID() + ", " + getName() + ", " + getDescription() + ", " + getExits() + ", " + getItemsInRoom() + ", " + getMonstersInRoom() + "}";
+    }
 }

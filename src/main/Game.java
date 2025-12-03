@@ -9,7 +9,7 @@ public class Game {
     public static void main(String[] args) {
         rooms = WorldLoader.loadRooms("src/world/rooms.csv");
         WorldLoader.loadObjects("src/world/objects.csv", rooms);
-        
+
         System.out.println("Welcome to the Text Adventure!");
     }
 }
