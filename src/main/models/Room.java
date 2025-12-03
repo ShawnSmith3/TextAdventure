@@ -18,15 +18,11 @@ public class Room {
     public Room(int roomID,
         String name,
         String description,
-        HashMap<String, Integer> exits,
-        ArrayList<Item> itemsInRoom,
-        ArrayList<Monster> monstersInRoom) {
+        HashMap<String, Integer> exits) {
         setRoomID(roomID);
         setName(name);
         setDescription(description);
         setExits(exits);
-        setItemsInRoom(itemsInRoom);
-        setMonstersInRoom(monstersInRoom);
     }
 
     // getters

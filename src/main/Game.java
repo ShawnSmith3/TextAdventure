@@ -6,9 +6,10 @@ import main.models.Room;
 
 public class Game {
     private static HashMap<Integer, Room> rooms;
-    private static WorldLoader worldLoader;
-    private static SaveManager saveManager;
     public static void main(String[] args) {
+        rooms = WorldLoader.loadRooms("src/world/rooms.csv");
+        WorldLoader.loadObjects("src/world/objects.csv", rooms);
+        
         System.out.println("Welcome to the Text Adventure!");
     }
 }
