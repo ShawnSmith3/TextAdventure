@@ -14,12 +14,15 @@ public class Key {
    }
 
   public void setName(String keyName){
+    name = keyName;
   }
 
   public void setDescription(String keyDescription){
+    description = keyDescription;
   }
 
   public void setWeight(double keyWeight){
+    weight = keyWeight;
   }
 
   public void setKeyID(int keyID){
