@@ -69,7 +69,7 @@ public class WorldLoader {
                         int health = Integer.valueOf(parameters[4]);
                         Room currentRoom = rooms.get(location_id);
                         damage = Integer.valueOf(parameters[5]);
-                        Item loot = new Item();
+                        //Item loot = new Item();
                         //Monster monster = new Monster(name, description, health, currentRoom, damage, loot);
                         //rooms.get(location_id).addMonster(monster);
                 }
@@ -78,6 +78,24 @@ public class WorldLoader {
             System.out.println("File was not found: " + filePath);
         } catch (IOException exception) {
             System.out.println(exception.getMessage());
+        }
+    }
+
+    private static Item loadItem(String[] parameters, boolean isDrop) {
+        int offset = isDrop ? 6 : 0;
+        String type = parameters[offset++];
+        String name = parameters[offset++];
+        String description = parameters[offset++];
+        if (!isDrop) offset++;
+        double weight = Double.valueOf(parameters[offset++]);
+        int value = Integer.valueOf(parameters[offset]);
+        switch (type) {
+            case "WEAPON":
+                //return new Weapon(name, description, weight, value);
+            case "KEY":
+                //return new Key(name, description, weight, value);
+            case "POTION":
+                //return new Potion(name, description, weight, value);
         }
     }
 }
