@@ -4,6 +4,11 @@ public class GameEntity {
     private String name;
     private String description;
 
+    public GameEntity(String name, String description) {
+        setName(name);
+        setDescription(description);
+    }
+
     public void setName(String entityName){
         name = entityName;
     }
