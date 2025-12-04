@@ -3,12 +3,10 @@ package main.models;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-public class Room {
+public class Room extends GameEntity {
     // instance data
 
     private int roomID;
-    private String name;
-    private String description;
     private HashMap<String, Integer> exits;
     private ArrayList<Item> itemsInRoom;
     private ArrayList<Monster> monstersInRoom;
@@ -19,6 +17,7 @@ public class Room {
         String name,
         String description,
         HashMap<String, Integer> exits) {
+        super(name, description);
         setRoomID(roomID);
         setName(name);
         setDescription(description);
@@ -31,14 +30,6 @@ public class Room {
 
     public int getRoomID() {
         return roomID;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public HashMap<String, Integer> getExits() {
@@ -71,14 +62,6 @@ public class Room {
         this.roomID = roomID;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public void setExits(HashMap<String, Integer> exits) {
         this.exits = exits;
     }
@@ -106,6 +89,6 @@ public class Room {
     // toString
 
     public String toString() {
-        return "{" + getRoomID() + ", " + getName() + ", " + getDescription() + ", " + getExits() + ", " + getItemsInRoom() + ", " + getMonstersInRoom() + "}";
+        return "{" + getRoomID() + ", " + super.toString() + ", " + getExits() + ", " + getItemsInRoom() + ", " + getMonstersInRoom() + "}";
     }
 }
