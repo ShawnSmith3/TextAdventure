@@ -41,10 +41,17 @@ public class WorldLoader {
             while ((line = bufferedReader.readLine()) != null) {
                 String[] parameters = line.split(",");
 
-                String type = parameters[0];
-                String name = parameters[1];
-                String description = parameters[2];
-                int location_id = Integer.valueOf(parameters[3]);
+                int location_id = Integer.valueOf(parameters[0]);
+                String type = parameters[1];
+                if (type.equals("MONSTER")) {
+
+                } else {
+
+                }
+
+                // String name = parameters[1];
+                // String description = parameters[2];
+                
 
                 switch (type) {
                     case "WEAPON":
@@ -81,21 +88,19 @@ public class WorldLoader {
         }
     }
 
-    private static Item loadItem(String[] parameters, boolean isDrop) {
-        int offset = isDrop ? 6 : 0;
+    private static Item loadItem(String[] parameters, int offset) {
         String type = parameters[offset++];
         String name = parameters[offset++];
         String description = parameters[offset++];
-        if (!isDrop) offset++;
         double weight = Double.valueOf(parameters[offset++]);
         int value = Integer.valueOf(parameters[offset]);
         switch (type) {
             case "WEAPON":
-                //return new Weapon(name, description, weight, value);
+                return new Weapon(name, description, weight, value);
             case "KEY":
-                //return new Key(name, description, weight, value);
+                return new Key(name, description, weight, value);
             case "POTION":
-                //return new Potion(name, description, weight, value);
+                return new Potion(name, description, weight, value);
         }
     }
 }

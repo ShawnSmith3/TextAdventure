@@ -1,52 +1,22 @@
 package main.models;
 
-public class Weapon {
-    private String name;
-    private String description;
-    private double weight;
+public class Weapon extends Item {
     private int damage;
 
-    public Weapon(String name, String description, double weight, int damage){
-        this.name = name;
-        this.description = description;
-        this.weight = weight;
+    public Weapon(String name, String description, double weight, int damage) {
+        super(name, description, weight);
         this.damage = damage;
     }
 
-        public void setName(String name){
-        this.name = name;
-        }
+    public void setDamage(int damage){
+        this.damage = damage;
+    }
 
-        public void setDescription(String description){
-            this.description = description;
-        }
-
-        public void setWeight(double weight){
-            this.weight = weight;
-        }
-
-        public void setDamage(int damage){
-            this.damage = damage;
-        }
-
-        public String getName(){
-        return name;
-        }
-
-        public String getDescription(){
-        return description;
-        }
-
-        public double getWeight(){
-        return weight;
-        }
-
-        public int getDamage(){
+    public int getDamage(){
         return damage;
-        }
+    }
 
-        public String toString() {
+    public String toString() {
         return "{" + getName() + ", " + getDescription() + ", " + getWeight() + getDamage() + "}";
     }
-    }
-
+}
