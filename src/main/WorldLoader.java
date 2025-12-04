@@ -44,41 +44,9 @@ public class WorldLoader {
                 int location_id = Integer.valueOf(parameters[0]);
                 String type = parameters[1];
                 if (type.equals("MONSTER")) {
-
+                    
                 } else {
-
-                }
-
-                // String name = parameters[1];
-                // String description = parameters[2];
-                
-
-                switch (type) {
-                    case "WEAPON":
-                        double weight = Double.valueOf(parameters[4]);
-                        int damage = Integer.valueOf(parameters[5]);
-                        //Weapon weapon = new Weapon(name, description, weight, damage);
-                        //rooms.get(location_id).addItem(weapon);
-                        break;
-                    case "KEY":
-                        weight = Double.valueOf(parameters[4]);
-                        int keyID = Integer.valueOf(parameters[5]);
-                        //Key key = new Key(name, description, weight, keyID);
-                        //rooms.get(location_id).addItem(key);
-                        break;
-                    case "POTION":
-                        weight = Double.valueOf(parameters[4]);
-                        int healAmount = Integer.valueOf(parameters[5]);
-                        //Potion potion = new Potion(name, description, weight, healAmount);
-                        //rooms.get(location_id).addItem(potion);
-                        break;
-                    case "MONSTER":
-                        int health = Integer.valueOf(parameters[4]);
-                        Room currentRoom = rooms.get(location_id);
-                        damage = Integer.valueOf(parameters[5]);
-                        //Item loot = new Item();
-                        //Monster monster = new Monster(name, description, health, currentRoom, damage, loot);
-                        //rooms.get(location_id).addMonster(monster);
+                    rooms.get(location_id).addItem(loadItem(parameters, 1));
                 }
             }
         } catch (FileNotFoundException exception) {
@@ -88,7 +56,7 @@ public class WorldLoader {
         }
     }
 
-    private static Item loadItem(String[] parameters, int offset) {
+    private static Item loadItem(String[] parameters, int offset) throws IOException {
         String type = parameters[offset++];
         String name = parameters[offset++];
         String description = parameters[offset++];
@@ -101,6 +69,8 @@ public class WorldLoader {
                 return new Key(name, description, weight, value);
             case "POTION":
                 return new Potion(name, description, weight, value);
+            default:
+                throw new IOException("FATAL: Wrong item type");
         }
     }
 }

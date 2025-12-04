@@ -17,6 +17,6 @@ public class Weapon extends Item {
     }
 
     public String toString() {
-        return "{" + getName() + ", " + getDescription() + ", " + getWeight() + getDamage() + "}";
+        return "{" + super.toString() + ", " + getDamage() + "}";
     }
 }

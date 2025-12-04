@@ -16,6 +16,10 @@ public class Key extends Item {
         return keyID;
     }
 
+    public String toString() {
+        return "{" + super.toString() + ", " + getKeyID() + "}";
+    }
+
     void interact(Player player){
         
     }

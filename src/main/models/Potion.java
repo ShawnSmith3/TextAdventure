@@ -17,6 +17,6 @@ public class Potion extends Item {
     }
 
     public String toString() {
-        return "{" + getName() + ", " + getDescription() + ", " + getWeight() + getHealAmount() + "}";
+        return "{" + super.toString() + ", " + getHealAmount() + "}";
     }
 }
