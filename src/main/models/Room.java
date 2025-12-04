@@ -19,8 +19,6 @@ public class Room extends GameEntity {
         HashMap<String, Integer> exits) {
         super(name, description);
         setRoomID(roomID);
-        setName(name);
-        setDescription(description);
         setExits(exits);
         setItemsInRoom(new ArrayList<Item>());
         setMonstersInRoom(new ArrayList<Monster>());
