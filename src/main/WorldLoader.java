@@ -69,7 +69,7 @@ public class WorldLoader {
                         int health = Integer.valueOf(parameters[4]);
                         Room currentRoom = rooms.get(location_id);
                         damage = Integer.valueOf(parameters[5]);
-                        Item loot = new Item();
+                        // Item loot = new Item();
                         //Monster monster = new Monster(name, description, health, currentRoom, damage, loot);
                         //rooms.get(location_id).addMonster(monster);
                 }
