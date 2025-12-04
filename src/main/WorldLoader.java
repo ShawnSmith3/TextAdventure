@@ -80,7 +80,6 @@ public class WorldLoader {
         int health = Integer.valueOf(parameters[offset++]);
         int damage = Integer.valueOf(parameters[offset++]);
         Item loot = loadItem(parameters, offset);
-        //return new Monster(name, description, health, damage, loot);
-        return new Monster();
+        return new Monster(name, description, health, damage, loot);
     }
 }

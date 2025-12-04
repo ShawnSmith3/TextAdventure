@@ -13,8 +13,6 @@ public class Game {
         rooms = WorldLoader.loadRooms("src/world/rooms.csv");
         WorldLoader.loadObjects("src/world/objects.csv", rooms);
 
-        System.out.println(rooms);
-
         System.out.println("Welcome to the Text Adventure!");
     }
 }
