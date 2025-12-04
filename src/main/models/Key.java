@@ -1,18 +1,20 @@
 package main.models;
 
-public class Key extends Item {
+import main.Interfaces.Interactable;
+
+public class Key extends Item implements Interactable {
     private int keyID;
 
-    public Key(String name, String description, double weight, int keyID){
+    public Key(String name, String description, double weight, int keyID) {
         super(name, description, weight);
         this.keyID = keyID;
     }
 
-    public void setKeyID(int keyID){
+    public void setKeyID(int keyID) {
         this.keyID = keyID; 
     }
 
-    public int getKeyID(){
+    public int getKeyID() {
         return keyID;
     }
 
@@ -20,7 +22,7 @@ public class Key extends Item {
         return "{" + super.toString() + ", " + getKeyID() + "}";
     }
 
-    void interact(Player player){
+    public void interact(Player player) {
         
     }
 }

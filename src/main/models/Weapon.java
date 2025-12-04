@@ -1,6 +1,8 @@
 package main.models;
 
-public class Weapon extends Item {
+import main.Interfaces.Interactable;
+
+public class Weapon extends Item implements Interactable {
     private int damage;
 
     public Weapon(String name, String description, double weight, int damage) {
@@ -18,5 +20,9 @@ public class Weapon extends Item {
 
     public String toString() {
         return "{" + super.toString() + ", " + getDamage() + "}";
+    }
+
+    public void interact(Player player) {
+        
     }
 }

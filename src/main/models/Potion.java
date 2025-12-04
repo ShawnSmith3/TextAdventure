@@ -1,6 +1,8 @@
 package main.models;
 
-public class Potion extends Item {
+import main.Interfaces.Interactable;
+
+public class Potion extends Item implements Interactable {
     private int healAmount;
     
     public Potion(String name, String description, double weight, int healAmount){
@@ -18,5 +20,9 @@ public class Potion extends Item {
 
     public String toString() {
         return "{" + super.toString() + ", " + getHealAmount() + "}";
+    }
+
+    public void interact(Player player) {
+        
     }
 }
