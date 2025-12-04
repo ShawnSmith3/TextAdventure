@@ -1,5 +1,7 @@
 package main.Interfaces;
 
-public class Interactable {
-    
+import main.models.Player;
+
+public interface Interactable {
+    public void interact(Player player);
 }

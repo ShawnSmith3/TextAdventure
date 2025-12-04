@@ -41,37 +41,12 @@ public class WorldLoader {
             while ((line = bufferedReader.readLine()) != null) {
                 String[] parameters = line.split(",");
 
-                String type = parameters[0];
-                String name = parameters[1];
-                String description = parameters[2];
-                int location_id = Integer.valueOf(parameters[3]);
-
-                switch (type) {
-                    case "WEAPON":
-                        double weight = Double.valueOf(parameters[4]);
-                        int damage = Integer.valueOf(parameters[5]);
-                        //Weapon weapon = new Weapon(name, description, weight, damage);
-                        //rooms.get(location_id).addItem(weapon);
-                        break;
-                    case "KEY":
-                        weight = Double.valueOf(parameters[4]);
-                        int keyID = Integer.valueOf(parameters[5]);
-                        //Key key = new Key(name, description, weight, keyID);
-                        //rooms.get(location_id).addItem(key);
-                        break;
-                    case "POTION":
-                        weight = Double.valueOf(parameters[4]);
-                        int healAmount = Integer.valueOf(parameters[5]);
-                        //Potion potion = new Potion(name, description, weight, healAmount);
-                        //rooms.get(location_id).addItem(potion);
-                        break;
-                    case "MONSTER":
-                        int health = Integer.valueOf(parameters[4]);
-                        Room currentRoom = rooms.get(location_id);
-                        damage = Integer.valueOf(parameters[5]);
-                        // Item loot = new Item();
-                        //Monster monster = new Monster(name, description, health, currentRoom, damage, loot);
-                        //rooms.get(location_id).addMonster(monster);
+                int location_id = Integer.valueOf(parameters[0]);
+                String type = parameters[1];
+                if (type.equals("MONSTER")) {
+                    rooms.get(location_id).addMonster(loadMonster(parameters, 2));
+                } else {
+                    rooms.get(location_id).addItem(loadItem(parameters, 1));
                 }
             }
         } catch (FileNotFoundException exception) {
@@ -79,5 +54,33 @@ public class WorldLoader {
         } catch (IOException exception) {
             System.out.println(exception.getMessage());
         }
+    }
+
+    private static Item loadItem(String[] parameters, int offset) throws IOException {
+        String type = parameters[offset++];
+        String name = parameters[offset++];
+        String description = parameters[offset++];
+        double weight = Double.valueOf(parameters[offset++]);
+        int value = Integer.valueOf(parameters[offset]);
+        switch (type) {
+            case "WEAPON":
+                return new Weapon(name, description, weight, value);
+            case "KEY":
+                return new Key(name, description, weight, value);
+            case "POTION":
+                return new Potion(name, description, weight, value);
+            default:
+                throw new IOException("FATAL: Wrong item type");
+        }
+    }
+
+    private static Monster loadMonster(String[] parameters, int offset) throws IOException {
+        String name = parameters[offset++];
+        String description = parameters[offset++];
+        int health = Integer.valueOf(parameters[offset++]);
+        int damage = Integer.valueOf(parameters[offset++]);
+        Item loot = loadItem(parameters, offset);
+        //return new Monster(name, description, health, damage, loot);
+        return new Monster();
     }
 }
