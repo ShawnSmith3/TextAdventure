@@ -7,7 +7,12 @@ public class Weapon {
     private int damage;
 
     public Weapon(String name, String description, double weight, int damage){
-        
+        this.name = name;
+        this.description = description;
+        this.weight = weight;
+        this.damage = damage;
+    }
+
         public void setName(String name){
         this.name = name;
         }
@@ -44,4 +49,4 @@ public class Weapon {
         return "{" + getName() + ", " + getDescription() + ", " + getWeight() + getDamage() + "}";
     }
     }
-}
+
