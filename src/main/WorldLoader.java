@@ -44,7 +44,7 @@ public class WorldLoader {
                 int location_id = Integer.valueOf(parameters[0]);
                 String type = parameters[1];
                 if (type.equals("MONSTER")) {
-                    
+                    rooms.get(location_id).addMonster(loadMonster(parameters, 2));
                 } else {
                     rooms.get(location_id).addItem(loadItem(parameters, 1));
                 }
@@ -72,5 +72,15 @@ public class WorldLoader {
             default:
                 throw new IOException("FATAL: Wrong item type");
         }
+    }
+
+    private static Monster loadMonster(String[] parameters, int offset) throws IOException {
+        String name = parameters[offset++];
+        String description = parameters[offset++];
+        int health = Integer.valueOf(parameters[offset++]);
+        int damage = Integer.valueOf(parameters[offset++]);
+        Item loot = loadItem(parameters, offset);
+        //return new Monster(name, description, health, damage, loot);
+        return new Monster();
     }
 }
