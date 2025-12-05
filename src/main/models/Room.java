@@ -50,7 +50,7 @@ public class Room extends GameEntity {
         return itemsInRoom.get(i);
     }
 
-    public Monster getMonsterInRoom(int i) {
+    public Monster getMonstersInRoom(int i) {
         return monstersInRoom.get(i);
     }
 
