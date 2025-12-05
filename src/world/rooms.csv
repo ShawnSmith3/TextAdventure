@@ -1,8 +1,8 @@
 1,Stairwell,"You enter a damp cave, moss lining the walls, pebbles crunch under your boots. In the center of the chamber, a narrow staircase leads down into a brick doorway, only illuminated by your lantern.",-1,5,2,-1
-2,Skeleton,"You step into a chamber and see a massive skeleton torso propped up against the wall. Its empty ribcage is big enough to crawl into, its fingers grasping a valuable looking sword–guarding it even in death.",-1,6,3,1
-3,Hole,"The room opens into a large gaping hole in the ground. You can’t see the bottom—just pitch-black nothingness. A strange silence surrounds you; even your breathing sounds muffled.",-1,7,4,2
-4,Lair,"You enter a chamber marked with reddish-brown stains. Chains hang along the walls, and a hobgoblin sits atop a heap of gold, a bronze key swinging from his neck.",-1,8,-1,3
-5,Tumbleweed,"You walk into what seems like a completely empty room. Suddenly, a tumbleweed rolls past you. (But there’s no wind in here?)",1,9,6,-1
+2,Skeleton,"You step into a chamber and see a massive skeleton torso propped up against the wall. Its empty ribcage is big enough to crawl into, its fingers grasping a large sword guarding it even in death. (I wonder what happened here).",-1,6,3,1
+3,Hole,"The room opens into a large gaping hole in the ground. You can’t see the bottom—just pitch-black nothingness. A strange silence surrounds you, it unsettles you. You keep your distance, careful not to get too close to the edge. Looking east there is a door marked with reddish-brown stains",-1,7,4,2
+4,Lair,"You enter the chamber. Chains hang along the walls, and a skeleton lies sprawled out near a pile of broken weapons. Atop a heap of gold and valuables, a hobgoblin sits like a smug king. Around his neck hangs a bronze key, swinging slightly as he watches you enter.",-1,8,-1,3
+5,Tumbleweed,"You walk into what seems like a completely empty room. Suddenly, a tumbleweed rolls past you. (There’s no wind in here?)",1,9,6,-1
 6,Door,"A tall stone door stands ahead, wrapped tightly in heavy chains. A bronze lock holds them all in place.",2,10,7,5
 7,Goblin,"This room looks surprisingly lived in. A goblin stands menacingly in the center, gripping a spear with trembling hands.",3,-1,8,6
 8,McDonalds,"You step out of darkness and into… a bustling McDonald’s? Bright lights, kiosks, and a family happily eating their fries greet you.",4,-1,-1,7
