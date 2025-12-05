@@ -2,6 +2,7 @@ package main;
 
 import java.util.HashMap;
 import java.io.*;
+import java.util.ArrayList;
 
 import main.models.*;
 
@@ -26,6 +27,7 @@ public class WorldLoader {
 
                 rooms.put(roomID, new Room(roomID, name, description, exits));
             }
+            System.out.println("Successfully loaded " + rooms.size() + " rooms.");
         } catch (FileNotFoundException exception) {
             System.out.println("File was not found: " + filePath);
         } catch (IOException exception) {
@@ -35,18 +37,26 @@ public class WorldLoader {
         return rooms;
     }
 
-    public static void loadObjects(String filePath, HashMap<Integer, Room> rooms) {
+    public static Player loadObjects(String filePath, HashMap<Integer, Room> rooms) {
+        Player player = new Player();
+        
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
+            System.out.println("Loading game...");
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] parameters = line.split(",");
 
                 int location_id = Integer.valueOf(parameters[0]);
                 String type = parameters[1];
-                if (type.equals("MONSTER")) {
-                    rooms.get(location_id).addMonster(loadMonster(parameters, 2));
-                } else {
-                    rooms.get(location_id).addItem(loadItem(parameters, 1));
+                switch (type) {
+                    case "PLAYER":
+                        player = loadPlayer(parameters, 0);
+                        break;
+                    case "MONSTER":
+                        rooms.get(location_id).addMonster(loadMonster(parameters, 2));
+                        break;
+                    default:
+                        rooms.get(location_id).addItem(loadItem(parameters, 1));
                 }
             }
         } catch (FileNotFoundException exception) {
@@ -54,6 +64,8 @@ public class WorldLoader {
         } catch (IOException exception) {
             System.out.println(exception.getMessage());
         }
+
+        return player;
     }
 
     private static Item loadItem(String[] parameters, int offset) throws IOException {
@@ -81,5 +93,19 @@ public class WorldLoader {
         int damage = Integer.valueOf(parameters[offset++]);
         Item loot = loadItem(parameters, offset);
         return new Monster(name, description, health, damage, loot);
+    }
+
+    private static Player loadPlayer(String[] parameters, int offset) throws IOException {
+        int parametersLength = parameters.length - offset;
+        int location = Integer.valueOf(parameters[offset++]);
+        offset++;
+        String name = parameters[offset++];
+        String description = parameters[offset++];
+        int health = Integer.valueOf(parameters[offset++]);
+        ArrayList<Item> inventory = new ArrayList<>();
+        if (parametersLength > 5)
+            for (int i = offset; i < parameters.length; i += 5)
+                inventory.add(loadItem(parameters, i));
+        return new Player(name, description, health, inventory, location);
     }
 }
