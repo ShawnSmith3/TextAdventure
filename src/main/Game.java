@@ -19,18 +19,18 @@ public class Game {
         System.out.println("Welcome to the Text Adventure!");
 
         // game loop
-        // while (true) {
-        //     Room room = rooms.get(player.getLocation());
-        //     System.out.println("--- " + room.getName() + " ---\n"
-        //                     + room.getDescription() + "\n");
+        while (true) {
+            Room room = rooms.get(player.getLocation());
+            System.out.println("--- " + room.getName() + " ---\n"
+                            + room.getDescription() + "\n");
             
-        //     ArrayList<Item> itemsInRoom = room.getItemsInRoom();
-        //     //if (itemsInRoom.size() > 0)
-        //         //for (Item item : itemsInRoom)
+            ArrayList<Item> itemsInRoom = room.getItemsInRoom();
+            //if (itemsInRoom.size() > 0)
+                //for (Item item : itemsInRoom)
                 
                 
-        //     break;
-        // }
+            break;
+        }
         SaveManager.saveGame(rooms, player);
     }
 }

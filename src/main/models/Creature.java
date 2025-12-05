@@ -1,6 +1,8 @@
 package main.models;
 
-public class Creature extends GameEntity { 
+import main.Interfaces.Saveable;
+
+public class Creature extends GameEntity implements Saveable { 
     private int health;
 
     public Creature(String name, String description, int health){

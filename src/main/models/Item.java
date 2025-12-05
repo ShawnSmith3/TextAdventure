@@ -1,6 +1,8 @@
 package main.models;
 
-public class Item extends GameEntity { 
+import main.Interfaces.Saveable;
+
+public class Item extends GameEntity implements Saveable { 
     private double weight;
 
     public Item(String name, String description, double weight){
@@ -18,9 +20,5 @@ public class Item extends GameEntity {
 
     public String toString() {
         return "{" + super.toString() + ", " + getWeight() + "}";
-    }
-
-    public String getData(){
-        return "";   
     }
 }
