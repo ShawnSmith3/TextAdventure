@@ -18,7 +18,8 @@ public class Game {
         System.out.println("Welcome to the Text Adventure!");
 
         // game loop
-        while (true) {
+        String input = "";
+        while (!input.equals("quit")) {
             // describe room
             Room room = rooms.get(player.getLocation());
             System.out.print("--- " + room.getName() + " ---\n"
@@ -46,12 +47,36 @@ public class Game {
                     System.out.print(exit.getKey() + " ");
             System.out.println("\n");
 
+            // commands
+            // get <item name>
+            // attack <monster name>
+            // drop <item name>
+            // use <potion name or key name>
+            // i (view inventory)
+            // quit (save and quit)
+
             // command loop
-            
-                
-            break;
+            while (true) {
+                System.out.println("Enter a command: ");
+                input = scan.nextLine();
+                String[] split = input.split(" ");
+                String command = split[0];
+                String keyword = "";
+                if (split.length > 1)
+                    for (int i = 1; i < split.length; i++) {
+                        keyword += split[i];
+                        if (i != split.length - 1)
+                            keyword += " ";
+                    }
+                        
+                break;
+            }
         }
+
         SaveManager.saveGame(rooms, player);
+
         scan.close();
+
+        System.out.println("Thanks for playing!");
     }
 }
