@@ -19,4 +19,8 @@ public class Item extends GameEntity {
     public String toString() {
         return "{" + super.toString() + ", " + getWeight() + "}";
     }
+
+    public String getData(){
+        return "";   
+    }
 }
