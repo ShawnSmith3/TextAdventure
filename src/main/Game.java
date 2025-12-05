@@ -10,9 +10,12 @@ public class Game {
     private static Player player;
 
     public static void main(String[] args) {
+        // load game
         rooms = WorldLoader.loadRooms("src/world/rooms.csv");
-        WorldLoader.loadObjects("src/world/objects.csv", rooms);
-
+        player = WorldLoader.loadObjects("src/world/objects.csv", rooms);
+        
         System.out.println("Welcome to the Text Adventure!");
+
+        // game loop
     }
 }
