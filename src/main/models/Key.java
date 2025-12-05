@@ -25,4 +25,8 @@ public class Key extends Item implements Interactable {
     public void interact(Player player) {
         
     }
+
+    public String getData(){
+        return "KEY," + getName() + "," + getDescription() + "," + getWeight() + "," + getKeyID();   
+    }
 }
