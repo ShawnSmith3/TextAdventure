@@ -51,7 +51,7 @@ public class Game {
             // get <item name>
             // attack <monster name>
             // drop <item name>
-            // use <potion name or key name>
+            // use <item name>
             // i (view inventory)
             // quit (save and quit)
 
@@ -68,6 +68,27 @@ public class Game {
                         if (i != split.length - 1)
                             keyword += " ";
                     }
+                
+                switch (command) {
+                    case "get":
+                        for (Item item : itemsInRoom)
+                            if (keyword.equals(item.getName()))
+                                if (player.getInventoryWeight() + item.getWeight() > Player.INVENTORY_CAPACITY)
+                                    System.out.println("You can't pick up " + keyword + " because it is too heavy. Maybe try dropping an item from your inventory.");
+                        break;
+                    case "attack":
+                        break;
+                    case "drop":
+                        break;
+                    case "use":
+                        break;
+                    case "i":
+                        break;
+                    case "quit":
+                        break;
+                    default:
+                        System.out.println("Unrecognised command, try again.");
+                }
                         
                 break;
             }
