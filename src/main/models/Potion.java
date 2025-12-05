@@ -25,4 +25,9 @@ public class Potion extends Item implements Interactable {
     public void interact(Player player) {
         
     }
+    
+    public String getData(){
+        return "POTION," + getName() + "," + getDescription() + "," + getWeight() + "," + getHealAmount();   
+    }
+
 }
