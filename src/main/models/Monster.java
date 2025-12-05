@@ -29,4 +29,8 @@ public class Monster extends Creature{
     public String toString() {
         return "{" + super.toString() + ", " + getDamage() + ", " + getLoot() + "}";
     }
+
+    public String getData(){
+        return "MONSTER," + getName() + "," + getDescription() + "," + getHealth() + "," + getDamage();   
+    }
 }

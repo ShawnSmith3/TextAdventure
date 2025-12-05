@@ -25,4 +25,8 @@ public class Weapon extends Item implements Interactable {
     public void interact(Player player) {
         
     }
+
+    public String getData(){
+        return "WEAPON," + getName() + "," + getDescription() + "," + getWeight() + "," + getDamage();   
+    }
 }
