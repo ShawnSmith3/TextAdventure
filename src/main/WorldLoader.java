@@ -96,13 +96,12 @@ public class WorldLoader {
     }
 
     private static Player loadPlayer(String[] parameters, int offset) throws IOException {
-        int index = offset;
         int parametersLength = parameters.length - offset;
-        int location = Integer.valueOf(parameters[index++]);
-        index++;
-        String name = parameters[index++];
-        String description = parameters[index++];
-        int health = Integer.valueOf(parameters[index++]);
+        int location = Integer.valueOf(parameters[offset++]);
+        offset++;
+        String name = parameters[offset++];
+        String description = parameters[offset++];
+        int health = Integer.valueOf(parameters[offset++]);
         ArrayList<Item> inventory = new ArrayList<>();
         if (parametersLength > 5)
             for (int i = offset; i < parameters.length; i += 5)
