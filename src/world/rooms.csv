@@ -1,4 +1,10 @@
-0,Forest Clearing,A quiet clearing.,2,-1,3,-1
-1,Deep Woods,It is dark here.,-1,1,-1,-1
-2,McDonalds,Im loving it.,0,-1,1,-1
-3,Spooky Cave,Its spoooooky in here.,-1,-1,0,2
+1, Stairwell, "You enter a damp cave, moss lining the walls, pebbles crunch under your boots. In the center of the chamber, a narrow staircase leads down into a brick doorway, only illuminated by your lantern.",-1,5,2,-1
+2, Skeleton, "You step into a chamber and see a massive skeleton torso propped up against the wall. Its empty ribcage is big enough to crawl into, its fingers grasping a valuable looking sword–guarding it even in death.",-1,6,3,1
+3, Hole, "The room opens into a large gaping hole in the ground. You can’t see the bottom—just pitch-black nothingness. A strange silence surrounds you; even your breathing sounds muffled.",-1,7,4,2
+4, Lair, "You enter a chamber marked with reddish-brown stains. Chains hang along the walls, and a hobgoblin sits atop a heap of gold, a bronze key swinging from his neck.",-1,8,-1,3
+5, Tumbleweed, "You walk into what seems like a completely empty room. Suddenly, a tumbleweed rolls past you. (But there’s no wind in here?)",1,9,6,-1
+6, Door, "A tall stone door stands ahead, wrapped tightly in heavy chains. A bronze lock holds them all in place.",2,10,7,5
+7, Goblin, "This room looks surprisingly lived in. A goblin stands menacingly in the center, gripping a spear with trembling hands.",3,-1,8,6
+8, McDonalds, "You step out of darkness and into… a bustling McDonald’s? Bright lights, kiosks, and a family happily eating their fries greet you.",4,-1,-1,7
+9, Throne, "A long table stands to one side, stocked with liquors and antiques. In the center sits a throne with a skeleton slumped atop it, crown slightly askew.",5,-1,10,-1
+10, End, "An empty room shrouded in darkness greets you. A single ray of light illuminates a staircase in front of you. (Is this the exit?)",6,-1,-1,9
