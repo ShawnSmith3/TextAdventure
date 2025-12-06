@@ -85,4 +85,10 @@ public class Player extends Creature implements Interactable {
         }
         return playerData;   
     }
+
+    public void useItem(String itemName) {
+        for (Item item : inventory)
+            if (item.getName().equals(itemName))
+                item.interact(this);
+    }
 }

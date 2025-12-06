@@ -102,7 +102,7 @@ public class Game {
                         }
                         break;
                     case "use":
-                        //player.useItem(keyword);
+                        player.useItem(keyword);
                         break;
                     case "i":
                         player.showInventory();

@@ -1,8 +1,8 @@
 package main.models;
 
-import main.Interfaces.Saveable;
+import main.Interfaces.*;
 
-public class Item extends GameEntity implements Saveable { 
+public class Item extends GameEntity implements Saveable, Interactable { 
     private double weight;
 
     public Item(String name, String description, double weight){
