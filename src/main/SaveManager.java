@@ -13,22 +13,21 @@ public class SaveManager {
         System.out.println("Saving game...");
         try(PrintWriter writer = new PrintWriter(new FileWriter("src/world/savegame.csv"))){
             writer.println(player.getData());
-            writer.close();
 
             for(Room room : rooms.values()){
                 for(Monster monster : room.getMonstersInRoom()){
-                    writer.println((monster.getData()));
+                    writer.println(room.getRoomID() + "," + (monster.getData()));
                 }
                 for(Item item : room.getItemsInRoom()){
-                    writer.println(item.getData());
+                    writer.println(room.getRoomID() + "," + item.getData());
                 }
             }
             System.out.println("Game saved.");
+            writer.close();
         }
         catch (IOException exception){
             System.out.println(exception.getMessage());
         }
-        
     }
 
 
