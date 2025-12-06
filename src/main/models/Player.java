@@ -61,7 +61,13 @@ public class Player extends Creature implements Interactable {
     }
 
     public void showInventory() {
-        System.out.println(inventory);
+        System.out.print("You are carrying: ");
+        if (inventory.size() > 0) {
+            System.out.println();
+            for (Item item : inventory)
+                System.out.println("- " + item.getName());
+        } else
+            System.out.println("nothing");
     }
 
     public void interact(Player player) {

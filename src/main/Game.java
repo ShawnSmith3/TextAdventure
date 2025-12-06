@@ -93,8 +93,16 @@ public class Game {
                     case "attack":
                         break;
                     case "drop":
+                        try {
+                            Item item = player.dropItem(keyword);
+                            room.addItem(item);
+                            System.out.println("You dropped " + keyword);
+                        } catch (ItemDoesNotExistException exception) {
+                            System.out.println(exception.getMessage());
+                        }
                         break;
                     case "use":
+                        //player.useItem(keyword);
                         break;
                     case "i":
                         player.showInventory();
