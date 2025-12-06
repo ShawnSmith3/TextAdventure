@@ -10,6 +10,7 @@ import main.models.*;
 public class SaveManager {
     
     public static void saveGame(HashMap<Integer, Room> rooms, Player player){
+        System.out.println("Saving game...");
         try(PrintWriter writer = new PrintWriter(new FileWriter("src/world/savegame.csv"))){
             writer.println(player.getData());
             writer.close();

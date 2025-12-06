@@ -84,6 +84,14 @@ public class Room extends GameEntity {
         monstersInRoom.add(monster);
     }
 
+    public void removeItem(Item item) {
+        itemsInRoom.remove(item);
+    }
+
+    public void removeMonster(Monster monster) {
+        monstersInRoom.remove(monster);
+    }
+
     // toString
 
     public String toString() {

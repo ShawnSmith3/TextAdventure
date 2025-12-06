@@ -8,6 +8,7 @@ import main.Interfaces.Interactable;
 public class Player extends Creature implements Interactable {
     private ArrayList<Item> inventory;
     private int location;
+    public final static double INVENTORY_CAPACITY = 10.0;
 
     public Player(String name, String description, int health, ArrayList<Item> inventory, int location) {
         super(name, description, health);
@@ -27,6 +28,13 @@ public class Player extends Creature implements Interactable {
 
     public int getLocation() {
         return location;
+    }
+
+    public double getInventoryWeight() {
+        double weight = 0.0;
+        for (Item item : inventory)
+            weight += item.getWeight();
+        return weight;
     }
 
     public void setInventory(ArrayList<Item> inventory) {
