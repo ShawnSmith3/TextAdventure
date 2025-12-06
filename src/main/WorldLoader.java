@@ -103,10 +103,11 @@ public class WorldLoader {
         String description = parameters[offset++];
         int health = Integer.valueOf(parameters[offset++]);
         int damage = Integer.valueOf(parameters[offset++]);
+        int playerKeyCode = Integer.valueOf(parameters[offset++]);
         ArrayList<Item> inventory = new ArrayList<>();
         if (parametersLength > 5)
             for (int i = offset; i < parameters.length; i += 5)
                 inventory.add(loadItem(parameters, i));
-        return new Player(name, description, health, inventory, location, damage);
+        return new Player(name, description, health, inventory, location, damage, playerKeyCode);
     }
 }

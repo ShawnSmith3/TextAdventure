@@ -31,7 +31,7 @@ public class Monster extends Creature {
     }
 
     public String getData(){
-        return "MONSTER," + getName() + "," + getDescription() + "," + getHealth() + "," + getDamage();   
+        return "MONSTER," + getName() + "," + getDescription() + "," + (int)getHealth() + "," + getDamage() + "," + loot.getData();   
     }
 
     public void interact(Player player) {

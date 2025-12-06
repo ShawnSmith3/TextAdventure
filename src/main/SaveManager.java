@@ -29,17 +29,4 @@ public class SaveManager {
             System.out.println(exception.getMessage());
         }
     }
-
-
-public static Player loadGame(HashMap<Integer, Room> rooms){
-    File saveGame = new File("src/world/savegame.csv");
-
-    if(!saveGame.exists()){
-        System.out.println("No save file found.");
-        return new Player();
-    }
-    return WorldLoader.loadObjects("src/world/savegame.csv", rooms);
-    
-        }
-    }
-    
+}

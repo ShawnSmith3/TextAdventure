@@ -1,6 +1,7 @@
 package main;
 
 import java.util.*;
+import java.io.File;
 
 import main.models.*;
 
@@ -12,8 +13,19 @@ public class Game {
     public static void main(String[] args) {
         // load game
         rooms = WorldLoader.loadRooms("src/world/rooms.csv");
-        player = WorldLoader.loadObjects("src/world/objects.csv", rooms);
         scan = new Scanner(System.in);
+
+        File savefile = new File("src/world/savegame.csv");
+        if (savefile.exists()) {
+            System.out.print("Load game or new game (0 or 1): ");
+            int choice = scan.nextInt();
+            if (choice == 0)
+                player = WorldLoader.loadObjects("src/world/savegame.csv", rooms);
+            else
+                player = WorldLoader.loadObjects("src/world/objects.csv", rooms);
+        } else {
+            player = WorldLoader.loadObjects("src/world/objects.csv", rooms);
+        }
         
         System.out.println("Welcome to the Text Adventure!");
 
@@ -86,7 +98,14 @@ public class Game {
                         break;
                     case "go":
                         if (room.getExits().containsKey(keyword) && room.getExit(keyword) != -1)
-                            player.setLocation(room.getExit(keyword));
+                            if (room.getRoomID() == 6 && keyword.equals("south")) {
+                                if (player.getPlayerKeyCode() == 101) {
+                                    player.setLocation(room.getExit(keyword));
+                                    System.out.println("You unlocked the door");
+                                } else
+                                    System.out.println("You need a key to go this way");
+                            } else
+                                player.setLocation(room.getExit(keyword));
                         else
                             System.out.println("You can't go " + keyword);
                         break;
@@ -145,6 +164,13 @@ public class Game {
 
             if (player.getHealth() <= 0) {
                 System.out.println("Game over. You died.");
+                break;
+            }
+
+            // win game scenario
+
+            if (player.getLocation() == 10) {
+                System.out.println("You Win! You made it to the exit of the dungeon!");
                 break;
             }
         }

@@ -8,13 +8,15 @@ public class Player extends Creature implements Interactable {
     private ArrayList<Item> inventory;
     private int location;
     private int damage;
+    private int playerKeyCode;
     public final static double INVENTORY_CAPACITY = 20.0;
 
-    public Player(String name, String description, double health, ArrayList<Item> inventory, int location, int damage) {
+    public Player(String name, String description, double health, ArrayList<Item> inventory, int location, int damage, int playerKeyCode) {
         super(name, description, health);
         setInventory(inventory);
         setLocation(location);
         setDamage(damage);
+        setPlayerKeyCode(playerKeyCode);
     }
 
     public Player() {
@@ -36,6 +38,10 @@ public class Player extends Creature implements Interactable {
         return damage;
     }
 
+    public int getPlayerKeyCode() {
+        return playerKeyCode;
+    }
+
     public double getInventoryWeight() {
         double weight = 0.0;
         for (Item item : inventory)
@@ -53,6 +59,10 @@ public class Player extends Creature implements Interactable {
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public void setPlayerKeyCode(int playerKeyCode) {
+        this.playerKeyCode = playerKeyCode;
     }
 
     public void addItem(Item item){
@@ -89,7 +99,7 @@ public class Player extends Creature implements Interactable {
     }
 
     public String getData(){
-        String playerData = getLocation() + ",PLAYER," + getName() + "," + getDescription() + "," + getHealth() + "," + getDamage();
+        String playerData = getLocation() + ",PLAYER," + getName() + "," + getDescription() + "," + (int)getHealth() + "," + getDamage() + "," + getPlayerKeyCode();
         for(Item item : inventory){
             playerData += "," + item.getData();
         }
