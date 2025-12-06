@@ -1,5 +1,4 @@
 package main.models;
-import main.models.Room;
 
 import java.util.ArrayList;
 
@@ -8,18 +7,21 @@ import main.Interfaces.Interactable;
 public class Player extends Creature implements Interactable {
     private ArrayList<Item> inventory;
     private int location;
+    private int damage;
     public final static double INVENTORY_CAPACITY = 20.0;
 
-    public Player(String name, String description, int health, ArrayList<Item> inventory, int location) {
+    public Player(String name, String description, double health, ArrayList<Item> inventory, int location, int damage) {
         super(name, description, health);
         setInventory(inventory);
         setLocation(location);
+        setDamage(damage);
     }
 
     public Player() {
         super("", "", 0);
         setInventory(new ArrayList<>());
         setLocation(0);
+        setDamage(2);
     }
 
     public ArrayList<Item> getInventory() {
@@ -28,6 +30,10 @@ public class Player extends Creature implements Interactable {
 
     public int getLocation() {
         return location;
+    }
+
+    public int getDamage() {
+        return damage;
     }
 
     public double getInventoryWeight() {
@@ -43,6 +49,10 @@ public class Player extends Creature implements Interactable {
 
     public void setLocation(int location) {
         this.location = location;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 
     public void addItem(Item item){

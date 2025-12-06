@@ -1,8 +1,6 @@
 package main.models;
 
-import main.Interfaces.Interactable;
-
-public class Weapon extends Item implements Interactable {
+public class Weapon extends Item {
     private int damage;
 
     public Weapon(String name, String description, double weight, int damage) {
@@ -23,7 +21,8 @@ public class Weapon extends Item implements Interactable {
     }
 
     public void interact(Player player) {
-        
+        player.setDamage(player.getDamage() + getDamage());
+        System.out.println("You gained " + getDamage() + " attack damage!");
     }
 
     public String getData(){
