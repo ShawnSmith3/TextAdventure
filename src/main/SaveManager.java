@@ -2,8 +2,8 @@ package main;
 
 import java.io.*;
 import java.util.*;
-import main.models.Player;
-import main.models.Room;
+import main.models.*;
+
 
 
 
@@ -14,11 +14,33 @@ public class SaveManager {
         try(PrintWriter writer = new PrintWriter(new FileWriter("src/world/savegame.csv"))){
             writer.println(player.getData());
             writer.close();
-            System.out.println("Save successful\n");
+
+            for(Room room : rooms.values()){
+                for(Monster monster : room.getMonstersInRoom()){
+                    writer.println((monster.getData()));
+                }
+                for(Item item : room.getItemsInRoom()){
+                    writer.println(item.getData());
+                }
+            }
+            System.out.println("Game saved.");
         }
-        catch (IOException exception) {
+        catch (IOException exception){
             System.out.println(exception.getMessage());
         }
         
     }
-}
+
+
+public static Player loadGame(HashMap<Integer, Room> rooms){
+    File saveGame = new File("src/world/savegame.csv");
+
+    if(!saveGame.exists()){
+        System.out.println("No save file found.");
+        return new Player();
+    }
+    return WorldLoader.loadObjects("src/world/savegame.csv", rooms);
+    
+        }
+    }
+    

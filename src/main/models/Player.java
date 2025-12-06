@@ -1,4 +1,5 @@
 package main.models;
+import main.models.Room;
 
 import java.util.ArrayList;
 
@@ -72,7 +73,7 @@ public class Player extends Creature implements Interactable {
     }
 
     public String getData(){
-        String playerData = "PLAYER," + getName() + "," + getDescription() + "," + getHealth();
+        String playerData = getLocation() + ",PLAYER," + getName() + "," + getDescription() + "," + getHealth();
         for(Item item : inventory){
             playerData += "," + item.getData();
         }
