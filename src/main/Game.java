@@ -72,17 +72,23 @@ public class Game {
                 
                 switch (command) {
                     case "get":
-                        for (Item item : itemsInRoom)
-                            if (keyword.equals(item.getName()))
-                                if (player.getInventoryWeight() + item.getWeight() > Player.INVENTORY_CAPACITY)
+                        for (int i = 0; i < itemsInRoom.size(); i++)
+                            if (keyword.equals(itemsInRoom.get(i).getName()))
+                                if (player.getInventoryWeight() + itemsInRoom.get(i).getWeight() > Player.INVENTORY_CAPACITY)
                                     System.out.println("You can't pick up " + keyword + " because it is too heavy. Maybe try dropping an item from your inventory.");
                                 else {
-                                    player.addItem(item);
-                                    room.removeItem(item);
+                                    player.addItem(itemsInRoom.get(i));
+                                    room.removeItem(itemsInRoom.get(i));
+                                    System.out.println("You picked up the " + keyword);
                                 }
+                            else
+                                System.out.println(keyword + " is not in the room");
                         break;
                     case "go":
-                        
+                        if (room.getExits().containsKey(keyword) && room.getExit(keyword) != -1)
+                            player.setLocation(room.getExit(keyword));
+                        else
+                            System.out.println("You can't go " + keyword);
                         break;
                     case "attack":
                         break;
@@ -91,6 +97,7 @@ public class Game {
                     case "use":
                         break;
                     case "i":
+                        player.showInventory();
                         break;
                     case "quit":
                         break;
