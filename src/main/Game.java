@@ -19,6 +19,7 @@ public class Game {
         if (savefile.exists()) {
             System.out.print("Load game or new game (0 or 1): ");
             int choice = scan.nextInt();
+            scan.nextLine();
             if (choice == 0)
                 player = WorldLoader.loadObjects("src/world/savegame.csv", rooms);
             else
