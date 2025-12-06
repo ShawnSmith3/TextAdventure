@@ -89,7 +89,7 @@ public class Player extends Creature implements Interactable {
     }
 
     public String getData(){
-        String playerData = getLocation() + ",PLAYER," + getName() + "," + getDescription() + "," + getHealth();
+        String playerData = getLocation() + ",PLAYER," + getName() + "," + getDescription() + "," + getHealth() + "," + getDamage();
         for(Item item : inventory){
             playerData += "," + item.getData();
         }
