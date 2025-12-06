@@ -21,7 +21,7 @@ public class Key extends Item {
     }
 
     public void interact(Player player) {
-        
+        player.setPlayerKeyCode(getKeyID());
     }
 
     public String getData(){
