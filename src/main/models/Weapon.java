@@ -26,6 +26,6 @@ public class Weapon extends Item {
     }
 
     public String getData(){
-        return "WEAPON," + getName() + "," + getDescription() + "," + getWeight() + "," + getDamage();   
+        return "WEAPON," + getName() + "," + getDescription() + "," + (int)getWeight() + "," + getDamage();   
     }
 }

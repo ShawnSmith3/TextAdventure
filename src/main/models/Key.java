@@ -25,6 +25,6 @@ public class Key extends Item {
     }
 
     public String getData(){
-        return "KEY," + getName() + "," + getDescription() + "," + getWeight() + "," + getKeyID();   
+        return "KEY," + getName() + "," + getDescription() + "," + (int)getWeight() + "," + getKeyID();   
     }
 }

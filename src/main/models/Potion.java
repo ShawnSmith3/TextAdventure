@@ -26,7 +26,7 @@ public class Potion extends Item {
     }
     
     public String getData(){
-        return "POTION," + getName() + "," + getDescription() + "," + getWeight() + "," + getHealAmount();   
+        return "POTION," + getName() + "," + getDescription() + "," + (int)getWeight() + "," + (int)getHealAmount();   
     }
 
 }
