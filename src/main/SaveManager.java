@@ -13,7 +13,6 @@ public class SaveManager {
         System.out.println("Saving game...");
         try(PrintWriter writer = new PrintWriter(new FileWriter("src/world/savegame.csv"))){
             writer.println(player.getData());
-            writer.close();
 
             for(Room room : rooms.values()){
                 for(Monster monster : room.getMonstersInRoom()){
@@ -24,11 +23,11 @@ public class SaveManager {
                 }
             }
             System.out.println("Game saved.");
+            writer.close();
         }
         catch (IOException exception){
             System.out.println(exception.getMessage());
         }
-        
     }
 
 
