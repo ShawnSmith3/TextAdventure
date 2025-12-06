@@ -1,8 +1,6 @@
 package main.models;
 
-import main.Interfaces.Interactable;
-
-public class Key extends Item implements Interactable {
+public class Key extends Item {
     private int keyID;
 
     public Key(String name, String description, double weight, int keyID) {

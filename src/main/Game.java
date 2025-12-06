@@ -91,6 +91,21 @@ public class Game {
                             System.out.println("You can't go " + keyword);
                         break;
                     case "attack":
+                        for (int i = 0; i < monstersInRoom.size(); i++) {
+                            Monster monster = monstersInRoom.get(i);
+                            if (monster.getName().equals(keyword)) {
+                                double remainingHealth = monster.getHealth() - player.getDamage();
+                                if (remainingHealth > 0) {
+                                    monster.setHealth(remainingHealth);
+                                    System.out.println(monster.getName() + " has " + monster.getHealth() + " health left.");
+                                } else {
+                                    room.addItem(monster.getLoot());
+                                    room.removeMonster(monster);
+                                    System.out.println("You defeated the " + monster.getName());
+                                }
+                            } else
+                                System.out.println("There is no monster named " + keyword);
+                        }
                         break;
                     case "drop":
                         try {
@@ -102,7 +117,12 @@ public class Game {
                         }
                         break;
                     case "use":
-                        //player.useItem(keyword);
+                        player.useItem(keyword);
+                        ArrayList<Item> inventory = player.getInventory();
+                        for (int i = 0 ; i < inventory.size(); i++)
+                            if (inventory.get(i).getName().equals(keyword))
+                                inventory.remove(i);
+                        player.setInventory(inventory);
                         break;
                     case "i":
                         player.showInventory();
@@ -113,6 +133,18 @@ public class Game {
                         System.out.println("Unrecognised command, try again.");
                 }
                         
+                break;
+            }
+
+            // enemy turn
+
+            for (Monster monster : monstersInRoom)
+                monster.interact(player);
+
+            // loose game scenario
+
+            if (player.getHealth() <= 0) {
+                System.out.println("Game over. You died.");
                 break;
             }
         }

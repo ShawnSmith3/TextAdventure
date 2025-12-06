@@ -3,14 +3,14 @@ package main.models;
 import main.Interfaces.Saveable;
 
 public class Creature extends GameEntity implements Saveable { 
-    private int health;
+    private double health;
 
-    public Creature(String name, String description, int health){
+    public Creature(String name, String description, double health){
         super(name, description);
         this.health = health;
     }
 
-    public void setHealth(int creatureHealth){
+    public void setHealth(double creatureHealth){
         health = creatureHealth;
     }
 

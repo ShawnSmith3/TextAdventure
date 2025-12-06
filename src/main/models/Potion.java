@@ -1,8 +1,6 @@
 package main.models;
 
-import main.Interfaces.Interactable;
-
-public class Potion extends Item implements Interactable {
+public class Potion extends Item {
     private int healAmount;
     
     public Potion(String name, String description, double weight, int healAmount){
@@ -23,7 +21,8 @@ public class Potion extends Item implements Interactable {
     }
 
     public void interact(Player player) {
-        
+        player.setHealth(player.getHealth() + getHealAmount());
+        System.out.println("You gained " + getHealAmount() + " health!");
     }
     
     public String getData(){
