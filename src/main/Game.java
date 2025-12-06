@@ -135,6 +135,18 @@ public class Game {
                         
                 break;
             }
+
+            // enemy turn
+
+            for (Monster monster : monstersInRoom)
+                monster.interact(player);
+
+            // loose game scenario
+
+            if (player.getHealth() <= 0) {
+                System.out.println("Game over. You died.");
+                break;
+            }
         }
 
         SaveManager.saveGame(rooms, player);
