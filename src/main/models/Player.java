@@ -8,7 +8,7 @@ import main.Interfaces.Interactable;
 public class Player extends Creature implements Interactable {
     private ArrayList<Item> inventory;
     private int location;
-    public final static double INVENTORY_CAPACITY = 10.0;
+    public final static double INVENTORY_CAPACITY = 20.0;
 
     public Player(String name, String description, int health, ArrayList<Item> inventory, int location) {
         super(name, description, health);
@@ -61,7 +61,13 @@ public class Player extends Creature implements Interactable {
     }
 
     public void showInventory() {
-        System.out.println(inventory);
+        System.out.print("You are carrying: ");
+        if (inventory.size() > 0) {
+            System.out.println();
+            for (Item item : inventory)
+                System.out.println("- " + item.getName());
+        } else
+            System.out.println("nothing");
     }
 
     public void interact(Player player) {
