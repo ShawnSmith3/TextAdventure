@@ -49,6 +49,7 @@ public class Game {
 
             // commands
             // get <item name>
+            // go <north, south, east, or west>
             // attack <monster name>
             // drop <item name>
             // use <item name>
@@ -75,6 +76,13 @@ public class Game {
                             if (keyword.equals(item.getName()))
                                 if (player.getInventoryWeight() + item.getWeight() > Player.INVENTORY_CAPACITY)
                                     System.out.println("You can't pick up " + keyword + " because it is too heavy. Maybe try dropping an item from your inventory.");
+                                else {
+                                    player.addItem(item);
+                                    room.removeItem(item);
+                                }
+                        break;
+                    case "go":
+                        
                         break;
                     case "attack":
                         break;
