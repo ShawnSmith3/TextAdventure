@@ -17,10 +17,10 @@ public class SaveManager {
 
             for(Room room : rooms.values()){
                 for(Monster monster : room.getMonstersInRoom()){
-                    writer.println((monster.getData()));
+                    writer.println(room.getRoomID() + "," + (monster.getData()));
                 }
                 for(Item item : room.getItemsInRoom()){
-                    writer.println(item.getData());
+                    writer.println(room.getRoomID() + "," + item.getData());
                 }
             }
             System.out.println("Game saved.");
